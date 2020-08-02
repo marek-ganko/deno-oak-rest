@@ -1,16 +1,23 @@
-import { Application, Context, isHttpError, Status } from 'https://deno.land/x/oak/mod.ts';
-import { green, cyan, bold } from 'https://deno.land/std@0.62.0/fmt/colors.ts';
-import { router } from './controllers/router.ts';
-import { notFound } from './middleware/routing.ts';
+import {
+  Application,
+  Context,
+  isHttpError,
+  Status,
+} from "https://deno.land/x/oak/mod.ts";
+import { green, cyan, bold } from "https://deno.land/std@0.62.0/fmt/colors.ts";
+import { router } from "./controllers/router.ts";
+import { notFound } from "./middleware/routing.ts";
 
 const app = new Application();
 
 // Logger
 app.use(async (context, next) => {
   await next();
-  const rt = context.response.headers.get('X-Response-Time');
+  const rt = context.response.headers.get("X-Response-Time");
   console.log(
-    `${green(context.request.method)} ${cyan(decodeURIComponent(context.request.url.pathname))} - ${bold(String(rt))}`,
+    `${green(context.request.method)} ${
+      cyan(decodeURIComponent(context.request.url.pathname))
+    } - ${bold(String(rt))}`,
   );
 });
 
@@ -19,7 +26,7 @@ app.use(async (context, next) => {
   const start = Date.now();
   await next();
   const ms = Date.now() - start;
-  context.response.headers.set('X-Response-Time', `${ms}ms`);
+  context.response.headers.set("X-Response-Time", `${ms}ms`);
 });
 
 // Error handler
@@ -30,12 +37,12 @@ app.use(async (context, next) => {
     if (isHttpError(err)) {
       context.response.status = err.status;
       const { message, status, stack } = err;
-      if (context.request.accepts('json')) {
+      if (context.request.accepts("json")) {
         context.response.body = { message, status, stack };
-        context.response.type = 'json';
+        context.response.type = "json";
       } else {
-        context.response.body = `${status} ${message}\n\n${stack ?? ''}`;
-        context.response.type = 'text/plain';
+        context.response.body = `${status} ${message}\n\n${stack ?? ""}`;
+        context.response.type = "text/plain";
       }
     } else {
       console.log(err);

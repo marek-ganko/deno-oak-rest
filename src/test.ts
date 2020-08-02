@@ -1,10 +1,10 @@
 import { superoak } from "https://deno.land/x/superoak/mod.ts";
-import app from "../app.ts";
-import books from "../models/book.model.ts";
+import app from "./app.ts";
+import books from "./models/book.model.ts";
 import { createRequire } from "https://deno.land/std/node/module.ts";
 
 const require = createRequire(import.meta.url);
-const mockedData = require('../models/book.mock.json');
+const mockedData = require('./models/book.mock.json');
 
 Deno.test('it will return "Hello world!" message on / endpoint',
     async () => {

@@ -1,11 +1,14 @@
-import { Book } from '../types/book.ts';
+import { Book } from "../types/book.ts";
+import { createRequire } from "https://deno.land/std/node/module.ts";
 
 const books = new Map<string, Book>();
+const require = createRequire(import.meta.url);
+const mockedData = require('./book.mock.json');
 
-books.set('1234', {
-  id: '1234',
-  title: 'The Hound of the Baskervilles',
-  author: 'Conan Doyle, Author',
-});
+mockedData.map((book: Book) => books.set(book.id, book));
+
+const b = books.get('1234');
+
+console.log(b);
 
 export default books;
