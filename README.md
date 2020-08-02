@@ -15,6 +15,10 @@ Tests with superoak indluded
 
 ``yarn start``
 
+### Run with watch
+
+``yarn serve``
+
 ### Test
 
 ``yarn test``
