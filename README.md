@@ -1,32 +1,32 @@
-# deno-oak-rest
+# Deno Oak server
 
-REST API server based on Deno v1.2.2 and Oak
+Simple REST API and GraphQL server based on Deno v1.2.2 and Oak
 
 Tests with superoak indluded
 
 ### Dependencies
 
- * deno
- * denon
- * nodejs
- * yarn
+- deno
+- denon
+- nodejs
+- yarn
 
 ### Run
 
-``yarn start``
+`yarn start`
 
 ### Run with watch
 
-``yarn serve``
+`yarn serve`
 
 ### Test
 
-``yarn test``
+`yarn test`
 
 ### Lint
 
-``yarn lint``
+`yarn lint`
 
 ### Format
 
-``yarn format``
+`yarn format`

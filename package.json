@@ -5,9 +5,9 @@
   "description": "Backend For Frontend using Deno runner and framework Oak",
   "main": "src/index.ts",
   "scripts": {
-    "start": "deno run --allow-net --allow-env --allow-read --unstable src/index.ts",
-    "serve": "denon run --allow-net --allow-env --allow-read --unstable src/index.ts",
-    "test": "deno test --allow-net --allow-env --allow-read --unstable",
+    "start": "deno run --allow-net --allow-env --allow-read src/index.ts",
+    "serve": "denon run --allow-net --allow-env --allow-read src/index.ts",
+    "test": "deno test --allow-net --allow-env --allow-read",
     "lint": "deno lint",
     "format": "deno fmt",
     "bundle": "deno bundle"
